@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  app:
+    container_name: ""
+    build:
+      context: .
+      dockerfile: Dockerfile-good
+    environment:
+      PG_USER: pg_user
+      PG_PASSWD: pg_password
+      PG_DB: pg_database
+      PG_HOST: postgres
+      PG_PORT: 5432
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:16
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    environment:
+      PG_USER: pg_user
+      PG_PASSWD: pg_password
+      PG_DB: pg_database
+    ports:
+      - "5432:5432"
+volumes:
+  pg_data:
