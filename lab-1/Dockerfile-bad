@@ -1,0 +1,11 @@
+FROM ubuntu:latest
+
+RUN mkdir src &&
+    cd src
+WORKDIR /src
+
+RUN apt-get update
+RUN apt-get install -y python3
+
+COPY . /src
+RUN pip install -r requirements.txt
