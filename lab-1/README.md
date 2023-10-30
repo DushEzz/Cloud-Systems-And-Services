@@ -58,17 +58,17 @@ RUN pip install -r requirements.txt
 ## "Хороший" Dockerfile
 Как выглядит этот Dockerfile:
 ```
-FROM ubuntu:latest
+FROM python:3.9-alpine
 
-RUN mkdir src &&
-    cd src
 WORKDIR /src
 
-RUN apt-get update
-RUN apt-get install -y python3
-
-COPY . /src
+COPY requirements.txt .
 RUN pip install -r requirements.txt
+
+COPY . .
+
+ENTRYPOINT [ "python", "-m" ]
+CMD [ "app.py" ]
 ```
 Ниже приведен список изменений, исправляющие вышеупомянутые ошибки:
 1. Был _изменен родительский образ_ (`FROM python:3.9-alpine`), который содержит все только все необходимое для сборки 
