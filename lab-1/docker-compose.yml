@@ -18,7 +18,7 @@ services:
     container_name: postgres
     image: postgres:16
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/001.sql
+      - ./migrations:/docker-entrypoint-initdb.d
       - pg_data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: test_db
