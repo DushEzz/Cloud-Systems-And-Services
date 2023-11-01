@@ -7,5 +7,5 @@ WORKDIR /src
 RUN apt-get update
 RUN apt-get install -y python3
 
-COPY . /src
+COPY app.py requirements.txt /src/
 RUN pip install -r requirements.txt
