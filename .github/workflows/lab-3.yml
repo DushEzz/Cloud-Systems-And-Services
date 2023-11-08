@@ -1,0 +1,33 @@
+name: Auto Push Image To Docker Hub
+
+on:
+  push:
+    branches: "main"
+    paths:
+      - "lab-3/**"
+      - ".github/workflows/**"
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-22.04
+
+    defaults:
+      run:
+        working-directory: "/lab-3"
+
+    steps:
+      - name: checkout-repository
+        uses: actions/checkout@v4
+
+      - name: docker-hub-login
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: docker-build-push
+        uses: docker/build-push-action@v5
+        with:
+          context: "./lab-3"
+          push: true
+          tags: dushez/dummy-flask-app-itmo:latest
