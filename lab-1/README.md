@@ -20,7 +20,7 @@
 ## "Плохой" Dockerfile
 Ниже приведены все ошибки в "плохом" Dockerfile, а также их описание (в разделе про "хороший" Dockerfile). 
 Как выглядит этот Dockerfile:
-```
+```Dockerfile
 FROM ubuntu:latest
 
 RUN mkdir src &&
@@ -58,7 +58,7 @@ RUN pip install -r requirements.txt
 
 ## "Хороший" Dockerfile
 Как выглядит этот Dockerfile:
-```
+```Dockerfile
 FROM python:3.9-alpine
 
 WORKDIR /src
@@ -91,7 +91,7 @@ CMD [ ]
 ## Задание "под звездочкой"
 Для выполнения этого задания был написан `docker-compose.yml`, в котором зказаны все опции запуска всех контейнеров, 
 необходимых для корректного функционирования проекта. Вот как он выглядит:
-```
+```yml
 version: "3.7"
 services:
   app:
