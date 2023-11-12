@@ -19,15 +19,14 @@ jobs:
       - name: checkout-repository
         uses: actions/checkout@v4
 
-      - name: imports-secrets
+      - name: import-secrets
         uses: hashicorp/vault-action@v2
         with:
           url: http://127.0.0.1:8200
           tlsSkipVerify: true
-          token: \${{ secrets.VAULT_TOKEN }}
-          secrets: >
-            secret/data/dockerhub/username DOCKERHUB_USERNAME
-            secret/data/dockerhub/password DOCKERHUB_PASSWORD
+          token: ${{ secrets.VAULT_TOKEN }}
+          secrets: |
+            secret/data/ci/dockerhub * | DOCKERHUB_
 
       - name: docker-hub-login
         uses: docker/login-action@v3
