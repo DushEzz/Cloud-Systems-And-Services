@@ -36,7 +36,7 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def create_app() -> Flask:
+def configure_app() -> Flask:
     args = parse_args()
     app.config["say_hello_to"] = args.say_hello_to
 
@@ -44,7 +44,7 @@ def create_app() -> Flask:
 
 
 def run_app() -> None:
-    app = create_app()
+    configure_app()
     app.run(host="0.0.0.0", port=5000)
 
 
