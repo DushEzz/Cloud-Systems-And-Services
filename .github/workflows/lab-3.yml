@@ -37,6 +37,6 @@ jobs:
       - name: docker-build-push
         uses: docker/build-push-action@v5
         with:
-          context: "/lab-3"
+          context: "./lab-3"
           push: true
           tags: dushez/dummy-flask-app-itmo:latest
