@@ -218,7 +218,7 @@ jobs:
 ![docker-build](./assets/prepare-self-hosted-runner-2.png)
 ![docker-build](./assets/prepare-self-hosted-runner-3.png)
 
-### Проверка cоздания Sekf Hosted Runner на GutHub
+### Проверка cоздания Self Hosted Runner на GutHub
 ![docker-build](./assets/check-self-hosted-runner.png)
 
 ### Проверка импорта секретов во времы выполнения Job
